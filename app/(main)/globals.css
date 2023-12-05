@@ -5,15 +5,50 @@
 .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     background-color: #f13024;
 }
-
 .swiper-button-next:after,
 .swiper-button-prev:after,
 .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
     color: #f13024;
 }
+.swiper-button-next {
+    margin: -10px;
+}
+.swiper-button-prev {
+    margin: -10px;
+}
 html,body {
     overflow-x: hidden;
     width: 100%;
     height: 100%;
 }
+.swiper-pagination-bullet {
+    width: 20px !important;
+    height: 20px !important;
+    background-color: gray !important;
+    transition: all 0.5s;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #f13024 !important;
+    width: 2.3125rem !important;
+    height: 15px !important;
+    border-radius: 0.625rem !important;
+}
+
+@media only screen and (max-width: 999px) {
+    .swiper-pagination-bullet {
+    width: 15px !important;
+        height: 15px !important;
+        background-color: gray !important;
+        transition: all 0.5s;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: #f13024 !important;
+        width: 2.3125rem !important;
+        height: 15px !important;
+        border-radius: 0.625rem !important;
+    }
+}
+

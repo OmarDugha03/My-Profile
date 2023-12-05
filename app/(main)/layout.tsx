@@ -20,7 +20,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={
-          inter.className + "  text-white bg-site  bg-cover w-full h-full"
+          inter.className +
+          " selection:text-black  text-white bg-site  bg-cover w-full h-full"
         }>
         <Image
           src="/top-left-img.png"

@@ -2,6 +2,7 @@
 import { bulb } from "@/public";
 import { FC } from "react";
 import { RxCrop, RxDesktop, RxPencil2 } from "react-icons/rx";
+import { FaArrowLeft } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css/navigation";
@@ -40,7 +41,7 @@ const Services: FC<ServicesProps> = ({}) => {
       icons: <RxPencil2 />,
     },
     {
-      title: "",
+      title: "Title",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       icons: <RxDesktop />,
     },
@@ -87,11 +88,17 @@ const Services: FC<ServicesProps> = ({}) => {
             }}>
             {serviceData.map((item) => (
               <SwiperSlide
-                className="w-full flex items-center rounded-lg py-8 lg:py-12 cursor-pointer my-1"
+                className="w-full flex items-start rounded-lg py-8  lg:py-12 cursor-pointer my-1"
                 key={item.title}>
-                <div className="bg-slate-900 opacity-90 backdrop-blur-sm lg:h-[220px]  justify-center h-[180px]  lg:flex flex-col w-full p-6 ">
-                  <span>{item.icons}</span> <h3>{item.title}</h3>{" "}
-                  <p>{item.description}</p>
+                <div className="bg-slate-900 opacity-90 relative gap-y-1 group lg:gap-y-4 backdrop-blur-sm lg:h-[220px] md:h-[200px]  justify-center h-[170px]  lg:flex flex-col w-full p-6 ">
+                  <div className="absolute top-4  group-hover:text-rose-500 transition-all duration-300 right-12 rotate-180 group-hover:translate-x-4">
+                    <FaArrowLeft />
+                  </div>
+                  <span className="my-4 lg:m-0 text-rose-500 text-2xl">
+                    {item.icons}
+                  </span>{" "}
+                  <h3 className="my-4 lg:m-0">{item.title}</h3>{" "}
+                  <p className="my-4 lg:m-0">{item.description}</p>
                 </div>
               </SwiperSlide>
             ))}
