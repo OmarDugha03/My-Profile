@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={
           inter.className + "  text-white bg-site  bg-cover w-full h-full"
@@ -35,6 +35,7 @@ export default function RootLayout({
         <SideBar />
 
         {children}
+
         <div className="hidden lg:block absolute bg-explosion w-full h-full   bg-no-repeat bg-cover bg-right top-0 left-28 -z-20 mix-blend-color-dodge" />
       </body>
     </html>
