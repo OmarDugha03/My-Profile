@@ -1,4 +1,4 @@
-export {default as avatar} from "./avatar.png"
+
 export {default as logo} from "./myLogo.svg"
 export {default as sfw} from "./software.png"
 export {default as bulb} from "./bulb.png"

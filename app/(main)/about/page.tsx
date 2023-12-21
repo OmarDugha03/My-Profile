@@ -84,7 +84,7 @@ const About: FC<AboutProps> = ({}) => {
         </p>
       </h2>
       <Tabs defaultValue="skills">
-        <TabsList className="flex flex-wrap gap-x-8  ls:gap-x-12 md:gap-x-20  items-start">
+        <TabsList className="flex flex-wrap  gap-x-8  ls:gap-x-12 md:gap-x-20  items-start">
           {aboutData.map((item) => (
             <TabsTrigger
               key={item.title}
@@ -117,8 +117,6 @@ const About: FC<AboutProps> = ({}) => {
             ))}
           </TabsContent>
         ))}
-
-        <TabsContent value="Experience">Change your password here.</TabsContent>
       </Tabs>
     </section>
   );

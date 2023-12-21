@@ -1,5 +1,4 @@
 "use client";
-import { FC } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -13,7 +12,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-interface ContactProps {}
 
 const contactSchema = z.object({
   emailAddress: z.string().email(),
@@ -22,32 +20,24 @@ const contactSchema = z.object({
   message: z.string().max(1000).optional(),
 });
 
-const Contact: FC<ContactProps> = ({}) => {
+export default function Contact() {
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
   });
 
-  function handleSubmit() {
-    return console.log("Done");
+  function onSubmit(values: z.infer<typeof contactSchema>) {
+    console.log(values);
   }
   return (
-    <section className="container gap-x-4 mb-20 lg:mb-0  flex flex-col mt-12 lg:flex-row lg:justify-between items-start">
+    <section className="container  gap-x-4 mb-20 lg:mb-0  flex flex-col mt-12 gap-y-4 lg:justify-between items-start">
       <div>
         <h2 className="text-3xl lg:text-4xl  font-bold mt-1">
           Contact Me from here
         </h2>
-        <p className=" max-w-md  font-medium pt-4 leading-relaxed tracking-wide mt-1">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, quae
-          magni officia, ipsa provident deleniti modi in praesentium consectetur
-          sequi voluptatum exercitationem eaque explicabo. Aliquid non placeat
-          dolor! Itaque, corporis?
-        </p>
       </div>
       <div className="w-full max-w-2xl mt-1 ">
         <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(handleSubmit)}
-            className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
               name="emailAddress"
@@ -88,7 +78,6 @@ const Contact: FC<ContactProps> = ({}) => {
                 </FormItem>
               )}
             />
-
             <Button type="submit" size="lg" variant="destructive">
               Submit
             </Button>
@@ -97,6 +86,4 @@ const Contact: FC<ContactProps> = ({}) => {
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
